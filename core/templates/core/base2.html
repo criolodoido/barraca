@@ -1,0 +1,29 @@
+{% load cloudinary %}
+{% load staticfiles%}
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/geral.css' %}">
+		<div class="logo">
+	  		<img src="{% static 'image/timbre.png' %}" alt="logo"/>
+	  	</div>
+	</head>
+	<body>
+		<table border="0">
+			<tr>	
+				<td><a href="{% url 'core:porcoes' %}"><button><h2>Porções</h2></button></a></td>
+			  	<td><a href="{% url 'core:pasteis' %}"><button><h2>Pastéis</h2></button></a></td>
+			  	<td><a href="{% url 'core:hotdog' %}"><button><h2>Hot-dog</h2></button></a></td>
+			  	<td><a href="{% url 'core:refrigerante' %}"><button><h2>Refrigerante</h2></button></a></td> 
+			  	<td><a href="{% url 'core:cerveja' %}"><button><h2>Cerveja</h2></button></a></td>
+			  	<td><a href="{% url 'core:coqueteis' %}"><button><h2>Coqueteis</h2></button></a></td>
+			</tr>
+		</table>
+	</body>
+	{% block content %}
+	{% endblock %}
+</html>

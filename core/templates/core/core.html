@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load cloudinary %}
+{% load staticfiles%}
+{% block content %}
+<!DOCTYPE html>
+	<body>
+		<p class="carlinhos">
+			<h1>Barraca do Carlinhos</h1></p>
+		<div class="principal">
+		  <p><h1>Por onde começar?</h1></p>
+		  <p><h2>Escolha por classificação, os produtos que gostaria de ver:</h2></p>
+		  <table border="0">
+			<tr>	
+				<a href="{% url 'core:porcoes' %}"><button><h2>Porções</h2></button></a>
+			  </tr>
+			  <tr>
+			  	<a href="{% url 'core:pasteis' %}"><button><h2>Pastéis</h2></button></a>
+			  </tr>
+			  <tr>
+			  	<a href="{% url 'core:hotdog' %}"><button><h2>Hot-dog</h2></button></a>
+			  </tr>
+			  <tr>
+			  	<a href="{% url 'core:refrigerante' %}"><button><h2>Refrigerante</h2></button></a> 
+			  </tr>
+			  <tr>
+			  	<a href="{% url 'core:cerveja' %}"><button><h2>Cerveja</h2></button></a>
+			  </tr>
+			  <tr>
+			  	<a href="{% url 'core:coqueteis' %}"><button><h2>Coqueteis</h2></button></a>
+			  </tr>
+			</table>
+		  </div>
+			  </div>
+		  <p><h2>Lugares que valem a pena conhecer em Bertioga:</h2></p>
+		  {% for post in posts %}
+		  <div class="patrocinio">
+			  	{% if post.tipos == "MARK"%}
+					{% if post.imagem %}
+						{% cloudinary post.imagem %}{{ post.texto }}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		</div>	
+	</body>
+{% endblock %}

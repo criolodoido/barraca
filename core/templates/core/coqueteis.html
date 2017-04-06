@@ -1,0 +1,21 @@
+{% extends 'core/base2.html' %}
+{% load cloudinary %}
+{% load staticfiles%}
+{% block content %}
+<!DOCTYPE html>
+<div class="caixa">
+		{% for post in posts %}
+			{% if post.tipos == "COC"%}
+				{% if post.name %}
+					{% if post.imagem %}{% if post.name %}
+						<p class="titulo"><h1>{{ post.name }}</h1></p>
+						<picture>{% cloudinary post.imagem %}</picture>
+					    <p class="intro"><h2>{{ post.texto }}</h2></p>
+					{% else %}
+					    {% cloudinary "produto-sem-imagem" width=100 height=100 crop="fill" %}
+					    	{% endif %}
+					        {% endif %}{% endif %}
+					    {% endif %}
+		{% endfor %}
+	</div>
+{% endblock %}
